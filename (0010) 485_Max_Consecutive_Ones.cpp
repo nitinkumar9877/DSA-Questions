@@ -3,6 +3,7 @@
 #include <algorithm>
 using namespace std;
 
+// nums = {1, 1, 0, 1, 1, 1}
 // | i | nums[i] | Condition (nums[i]==1?)  | con (current count) | ans (max count so far) | Explanation                       |
 // | - | ------- | -----------------------  | ------------------- | ---------------------- | --------------------------------- |
 // | 0 | 1       | ✅ Yes                   | con = 1             | ans = 1                | First 1 found                     |
@@ -12,16 +13,22 @@ using namespace std;
 // | 4 | 1       | ✅ Yes                   | con = 2             | ans = 2                | Continuing streak                 |
 // | 5 | 1       | ✅ Yes                   | con = 3             | ans = 3                | Longest streak (3 consecutive 1s) |
 
-class Solution {
+class Solution
+{
 public:
-    int findMaxConsecutiveOnes(vector<int>& nums) {
+    int findMaxConsecutiveOnes(vector<int> &nums)
+    {
         int con = 0;
         int ans = 0;
-        for (int i = 0; i < nums.size(); i++) {
-            if (nums[i] == 1) {
+        for (int i = 0; i < nums.size(); i++)
+        {
+            if (nums[i] == 1)
+            {
                 con++;
                 ans = max(ans, con);
-            } else {
+            }
+            else
+            {
                 con = 0;
             }
         }
@@ -29,7 +36,8 @@ public:
     }
 };
 
-int main() {
+int main()
+{
     Solution sol;
 
     // Example input
